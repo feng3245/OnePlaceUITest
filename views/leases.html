@@ -1,0 +1,44 @@
+<h1>Lease Activity</h1>
+
+<div class="filters leases-filters">
+    <div class="btn-group view-selector">
+        <!-- <button type="button" class="btn btn-primary stats" ng-model="layout" btn-radio="'Graph'"><img src="/styles/images/shape-stats.png" /></button> -->
+        <button type="button" class="btn btn-primary" ng-model="layout" btn-radio="'Table'"><img src="/styles/images/shape-table.png" /></button>
+    </div>
+
+    <div class="filter-group">
+        <h3 class="select-header">Filter by</h3>
+        <select ui-select2 ng-model="search.Status">
+            <option value="">Status</option>
+            <option value="{{prop_Type}}" ng-repeat="prop_Type in leases | uniqProp:'Status'">{{prop_Type}}</option>
+        </select>
+    </div>
+
+    <div class="btn-group">
+        <h3>Renewal Assumption</h3>
+        <button type="button" class="btn btn-primary" ng-model="search.UponExpiry" btn-radio="">All</button>
+        <button type="button" class="btn btn-primary" ng-model="search.UponExpiry" btn-radio="'Likely'">Likely</button>
+        <button type="button" class="btn btn-primary" ng-model="search.UponExpiry" btn-radio="'Definitive'">Definitive</button>
+        <button type="button" class="btn btn-primary" ng-model="search.UponExpiry" btn-radio="'Vacate/Lease Up'">Vacate/Lease Up</button>
+    </div>
+    <div class="btn-group">
+        <h3>Active</h3>
+        <button type="button" class="btn btn-primary" ng-model="search.IsActive" btn-radio="">All</button>
+        <button type="button" class="btn btn-primary" ng-model="search.IsActive" btn-radio="false">False</button>
+        <button type="button" class="btn btn-primary" ng-model="search.IsActive" btn-radio="true">True</button>
+    </div>
+    <div class="btn-group">
+        <h3>Speculative</h3>
+        <button type="button" class="btn btn-primary" ng-model="search.IsSpeculative" btn-radio="">All</button>
+        <button type="button" class="btn btn-primary" ng-model="search.IsSpeculative" btn-radio="false">False</button>
+        <button type="button" class="btn btn-primary" ng-model="search.IsSpeculative" btn-radio="true">True</button>
+    </div>
+    <div class="date-range filter-group">
+        <h3>Date Range</h3>
+        <input type="text" ng-model="search.StartDate" /> &mdash;
+        <input type="text" ng-model="search.EndDate" />
+    </div>
+    <button class="button clear-filters" ng-click="clear()"><img src="/styles/images/big-x.png" /></button>
+</div>
+
+<ng-include src="'/views/leases/'+layout+'.html'" class="leases"></ng-include>

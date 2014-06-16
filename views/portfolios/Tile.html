@@ -1,0 +1,10 @@
+<article class="tile" ng-repeat="portfolio in portfolios | filter:search | orderBy:sort.dir+sort.name">
+
+    <h2><a ui-sref="portfolio.edit({ id: portfolio.Id })">{{portfolio.Name}}</a></h2>
+
+    <p class="description">{{portfolio.Description}}</p>
+
+    <ul class="controls actions">
+        <li class="tag"><button tooltip="Tag Portfolio"><img src="/styles/images/tag.png" alt="Tag" /></button></li>
+    </ul>
+</article>

@@ -1,0 +1,29 @@
+<article class="tile" ng-repeat="loan in loans | orderBy:sort.dir+sort.name">
+
+    <h2><a ui-sref="property.loanDetails({ Uid: loan.Property.Uid, loan_id: loan.Code })">{{ loan.Type }}</a></h2>
+
+    <hr />
+
+    <dl>
+        <dt>Lender:</dt>
+        <dd>{{ loan.Lender }}</dd>
+
+        <dt>Property:</dt>
+        <dd><a ui-sref="property.edit({ Uid: loan.Property.Uid })">{{ loan.Property.Name }}</a></dd>
+
+        <dt>Remaining Term:</dt>
+        <dd>{{ loan.EndDate.preciseDiff(moment()) }}</dd>
+
+        <dt>Outstanding Balance</dt>
+        <dd>{{ loan.Balance | currency:'$':0 }}</dd>
+
+        <dt>Current Rate (%pa):</dt>
+        <dd>{{ loan.Rate+'%' }}</dt>
+    </dl>
+
+    <ul class="controls actions">
+        <li class="tag"><button tooltip="Tag Loan" tagging-toggle><img src="/styles/images/tag.png" alt="Tag" /></button></li>
+    </ul>
+
+    <div class="tagging" resource="loan" tags="['Garden', 'Office']"></div>
+</article>

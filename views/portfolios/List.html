@@ -1,0 +1,27 @@
+<article class="list" ng-repeat="portfolio in portfolios | filter:search | orderBy:sort.dir+sort.name">
+
+    <div class="selectbox">
+        <td class="selectbox"><input type="checkbox" ng-checked="portfolio.checked" ng-model="portfolio.checked" /></td>
+    </div>
+
+    <a ui-sref="portfolio.properties({ Uid: portfolio.Uid })" class="r-arr"><img src="/styles/images/r-arr.png" alt="View Portfolio" /></a>
+    <a ui-sref="portfolio.properties({ Uid: portfolio.Uid })">
+        <img ng-src="{{ portfolio.PictureUrl }}" class="thumb" width="117" style="max-height:92px"  />
+    </a>
+    <h2><a ui-sref="portfolio.properties({ Uid: portfolio.Uid })">{{portfolio.Name}}</a></h2>
+    <p class="description">{{portfolio.Description}}</p>
+
+    <dl class="details">
+        <dt>Code</dt>
+        <dd>{{ portfolio.Code }}</dd>
+
+        <dt>Assets</dt>
+        <dd>{{ portfolio.Assets }}</dd>
+
+        <dt ng-hide="isDemo">Total Aum</dt>
+        <dd ng-hide="isDemo">{{ 90+$index*10 }}</dd>
+
+        <dt>Total Area</dt>
+        <dd>{{ 800+$index*200 }}</dd>
+    </dl>
+</article>

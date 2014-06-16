@@ -1,0 +1,35 @@
+<ng-include src="'/views/shared/exports.html'"></ng-include>
+
+<nav class="breadcrumbs">
+    <a href="#/properties">Properties</a>
+</nav>
+<h1>
+    {{ property.Name }}
+    <span class="status" ng-repeat="workflow in property.Workflows">
+        {{ workflow.Workflow }} <span class="workflow-status {{ workflow.Status.replace(' ', '-').toLowerCase() }}">{{ workflow.Status }}</span>
+    </span>
+</h1>
+
+<div hamburger-nav>
+    <nav class="hamburger">
+        <a href="#bookmarks" class="open-menu right" ng-show="bookmarks && $state.current.name == 'property.loanDetails'"></a>
+        <a href="#sub-navigation" class="open-menu"></a>
+    </nav>
+
+    <nav class="hamburger-nav right" id="bookmarks" ng-show="bookmarks && $state.current.name == 'property.loanDetails'">
+        <a ng-repeat="bookmark in bookmarks" ng-click="scrollTo(bookmark.replace(' ', '-'))">{{ bookmark }}</a>
+    </nav>
+
+    <nav class="hamburger-nav" id="sub-navigation">
+        <a ui-sref="property.kpis({ Uid: property.Uid })" class="icon icon-overview">KPIs <span></span></a>
+        <a ui-sref="property.edit({ Uid: property.Uid })" class="icon icon-eye">Details <span></span></a>
+        <a ui-sref="property.reports({ Uid: property.Uid })" class="icon icon-reports">Reports <span></span></a>
+        <a ui-sref="property.leases({ Uid: property.Uid })" class="icon icon-lease">Leases <span></span></a>
+        <a ui-sref="property.models({ Uid: property.Uid })" class="icon icon-database">Models <span></span></a>
+        <a ui-sref="property.workflow({ Uid: property.Uid })" class="icon icon-workflow">Workflow <span></span></a>
+        <a ui-sref="property.notes({ Uid: property.Uid })" class="icon icon-notes">Notes <span></span></a>
+        <a ui-sref="property.loans({ Uid: property.Uid })" class="icon icon-loans">Loans <span></span></a>
+    </nav>
+    <section class="entity-details clearfix" ui-view>
+    </section>
+</div>

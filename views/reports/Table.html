@@ -1,0 +1,19 @@
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="report in reports | filter:search | orderBy:sort.dir+sort.name">
+            <td>{{ report.Name }}</td>
+            <td>{{ report.Id }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{ report.Type }}</td>
+            <td class="description">{{ report.Details }}</td>
+        </tr>
+    </tbody>
+    </tr>
+</table>

@@ -1,0 +1,92 @@
+<ul class="workflow-steps">
+    <li ng-repeat="s in steps" ng-class="{ active: steps[step] == s, completed: steps.indexOf(s) < step }">
+        {{ s }}
+    </li>
+</ul>
+
+<section id="workflow">
+    <ul class="workflow-models">
+
+        <li
+            ng-repeat="model in models"
+            ng-class="{ active: $state.params.model.toLowerCase() == model.name.toLowerCase() }"
+        >
+            <a ui-sref="property.workflow({ Uid: property.Uid, model: model.name })">{{ model.name }}</a>
+        </li>
+
+    </ul>
+
+    <nav class="workflow-status">
+        <h3>Approval Status</h3>
+        <ul>
+            <li class="completed">In Progress</li>
+            <li ng-class="{ completed: step > 0, rejected: rejected.indexOf(1) > -1 }">In Review</li>
+            <li ng-class="{ completed: step > 2, rejected: rejected.indexOf(2) > -1 }">Executive Approval</li>
+        </ul>
+    </nav>
+
+    <tabset>
+        <tab heading="{{ steps[step] }}">
+            <section ng-if="steps[step] == 'Submit'">
+                <h3>Submit to</h3>
+                <select>
+                    <option>Choose</option>
+                </select>
+
+                <div class="comment-box">
+                    <h3>Comments</h3>
+                    <textarea ng-model="comment"></textarea>
+                    <button class="button">Cancel</button>
+                    <button class="button button-orange" ng-click="nextStep(comment)">Submit</button>
+                </div>
+            </section>
+
+            <section ng-if="steps[step] == 'First Review'">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" ng-model="approval" btn-radio="'Approve'">Approve</button>
+                    <button type="button" class="btn btn-primary" ng-model="approval" btn-radio="'Reject'">Reject</button>
+                </div>
+                <div class="comment-box">
+                    <h3>Comments</h3>
+                    <textarea ng-model="comment"></textarea>
+                    <button class="button" ng-click="backStep()">Cancel</button>
+                    <button class="button button-orange" ng-click="nextStep(comment, approval)">Submit</button>
+                </div>
+            </section>
+
+            <section ng-if="steps[step] == 'Executive Approval'">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" ng-model="approval" btn-radio="'Approve'">Approve</button>
+                    <button type="button" class="btn btn-primary" ng-model="approval" btn-radio="'Reject'">Reject</button>
+                </div>
+                <div class="comment-box">
+                    <h3>Comments</h3>
+                    <textarea ng-model="comment"></textarea>
+                    <button class="button" ng-click="backStep()">Cancel</button>
+                    <button class="button button-orange" ng-click="nextStep(comment, approval)">Submit</button>
+                </div>
+            </section>
+        </tab>
+        <tab heading="History">
+            <table class="table" cg-table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>User ID</th>
+                        <th>Action</th>
+                        <th>Comments&nbsp;&nbsp;</th>
+                    <tr/>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="action in history">
+                        <td>{{ action.Date | date:'short' }}</td>
+                        <td>{{ action.Name }}</td>
+                        <td>{{ action.Action }}</td>
+                        <td>{{ action.Comment }}</td>
+                    </tr>
+            </table>
+        </tab>
+    </tabset>
+</section>
+
+<section class="kpi-chart" name="{{ $state.params.model }} KPIs" kpis="kpis"></section>

@@ -1,0 +1,19 @@
+<article ng-repeat="report in reports | filter:search | orderBy:sort.dir+sort.name" class="tile report">
+    <div tooltip="{{ report.Type }}" class="i2-icon" ng-class="{ 'i2-reports-orange': $even, 'i2-reports-gray': $odd }">
+        <i class="i2-icon type-{{ report.Type }}"></i>
+    </div>
+    <!-- <span class="report-type type-{{ report.Type }}" tooltip="{{ report.Type }}">{{ report.Type }}</span> -->
+    <h2>
+        <a href="{{ $state.href('report', { name: report.Name }) }}" open-report>{{ report.Name }}</a>
+    </h2>
+    <p>{{ report.Details }}</p>
+
+    <ul class="controls actions">
+        <li><button tooltip="Edit Report" ng-click="openNewReportModal(report)"><i class="i2-icon i2-pencil"></i></button></li>
+        <li><button tooltip="Tag Report" tagging-toggle><img src="/styles/images/tag.png" alt="Tag" /></button></li>
+        <li><button tooltip="Duplicate Report"><i class="i2-icon i2-con"></i></button></li>
+        <!-- <li><button tooltip="Export Report"></button></li> -->
+    </ul>
+
+    <div class="tagging" resource="report" tags="tags"></div>
+</article>

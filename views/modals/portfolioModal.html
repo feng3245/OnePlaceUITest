@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><img src="/styles/images/close-modal.png" /></button>
+    <h3>Add Properties to a Portfolio</h3>
+</div>
+<div class="modal-body">
+    <form class="add-to-portfolio">
+        <select ui-select2="portfolioSelect" ng-model="portfolio_props.portfolio_uids" ng-if="portfolios.$resolved" multiple>
+            <optgroup label="Portfolios">
+                <option value="{{ portfolio.Uid }}" ng-repeat="portfolio in portfolios">{{ portfolio.Name }}</option>
+            </optgroup>
+        </select>
+    </form>
+</div>
+<div class="modal-footer">
+    <!-- <button class="button">Create new Portfolio</button> -->
+    <button class="button button-orange" ng-click="ok()">Save</button>
+</div>

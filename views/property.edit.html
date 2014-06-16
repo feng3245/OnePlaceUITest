@@ -1,0 +1,78 @@
+<button class="button edit" ng-click="edit()">{{ editLabel }}</button>
+
+<h2>Property Details</h2>
+
+<form class="inline-editable">
+    <section class="entity-image image-uploader" entity="property" ng-if="property.$resolved"></section>
+
+    <div class="cg-editable" label="Name" field="property.Name" button="Save"></div>
+
+    <div class="cg-editable" label="Code" field="property.Code" button="Save"></div>
+
+    <div class="cg-editable" label="Description" field="property.Description" textarea button="Save"></div>
+
+    <div class="cg-editable" label="Valuation" field="property.Valuation" button="Save" currency="$"></div>
+
+    <div class="cg-editable" label="Street Address" field="property.Street" button="Save"></div>
+
+    <div class="cg-editable" label="City" field="property.City" button="Save"></div>
+
+    <div class="cg-editable" label="State" field="property.State" button="Save"></div>
+
+    <div class="cg-editable" label="Country" field="property.Country" button="Save"></div>
+
+    <div class="cg-editable" label="Asset Type" field="property.AssetType" button="Save"></div>
+
+    <hr />
+
+    <fieldset class="managers">
+        <div class="cg-editable" label="Portfolio Manager" field="property.PortfolioManager" button="Save"></div>
+        <div class="cg-editable" label="Leasing Agent" field="property.LeasingAgent" button="Save"></div>
+        <div class="cg-editable" label="Asset Manager" field="property.AssetManager" button="Save"></div>
+        <div class="cg-editable" label="Appraiser" field="property.Appraiser" button="Save"></div>
+        <div class="cg-editable" label="Property Manager" field="property.PropertyManager" button="Save"></div>
+    </fieldset>
+</form>
+
+<hr ng-if="editDirty" />
+
+<button class="button button-orange save-changes" ng-click="updateProperty(property)" ng-if="editDirty">Save Changes</button>
+<button class="button cancel-changes" ng-click="clear()" ng-if="editDirty">Cancel</button>
+
+<hr style="clear:both;" />
+
+<section class="files">
+    <h2>Manage Files</h2>
+    <button class="button" ng-click="openUploadFileModal()">Upload</button>
+    <table class="table" cg-table>
+        <thead>
+            <tr>
+                <th sort-by="Name">File Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th sort-by="Modified">Last Modified</th>
+                <th sort-by="ModifiedBy">Last Modified By</th>
+                <th>Comment</th>
+                <th sort-by="For">Use For</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="file in files | orderBy:sort.dir+sort.name">
+                <td>{{ file.Name }}</td>
+                <td>{{ file.Type }}</td>
+                <td>{{ file.Size }}</td>
+                <td>{{ file.Modified }}</td>
+                <td>{{ file.ModifiedBy }}</td>
+                <td>{{ file.Comment }}</td>
+                <td>{{ file.For }}</td>
+                <td class="actions">
+                    <a tooltip="Edit"><i class="i2-icon i2-crayon"></i></a>
+                    <a tooltip="View"><i class="i2-icon i2-view"></i></a>
+                    <a tooltip="Trash"><i class="i2-icon i2-trash"></i></a>
+                    <a tooltip="Download"><i class="i2-icon i2-download"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

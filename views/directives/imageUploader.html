@@ -1,0 +1,10 @@
+<div class="has-image" ng-if="entity.ImgPath">
+    <img ng-src="{{ entity.PictureUrl }}" />
+</div>
+
+<div class="no-image">
+    <img ng-src="/styles/images/camera.png" class="camera" ng-if="!entity.ImgPath" />
+    <p>{{ entity.Name }} doesn't have a photo yet.</p>
+    <a ng-click="openFile()" class="button">Upload photo</a>
+    <input type="file" id="property-picture" ng-file-select="onFileSelect($files)" />
+</div>

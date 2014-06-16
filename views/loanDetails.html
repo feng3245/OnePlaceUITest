@@ -1,0 +1,22 @@
+<div class="loans">
+    <tabset>
+        <tab heading="Loan Details">
+            <form class="inline-editable">
+                <fieldset ng-repeat="loan in loanDetails">
+                    <h3 id="{{ loan.Title.replace(' ', '-') }}"><img ng-src="{{ '/styles/images/icons/loans/'+loan.Title.replace(' ', '-').replace('&', '-')+'.png' }}" /> {{ loan.Title }}</h3>
+
+                    <div ng-repeat="field in loan.Fields" class="cg-editable" label="{{ field }}" field="loanData[field]"></div>
+                </fieldset>
+            </form>
+        </tab>
+        <tab heading="Abstract Details">
+            <form class="inline-editable">
+                <fieldset ng-repeat="loan in abstractDetails">
+                    <h3 id="{{ loan.Title.replace(' ', '-') }}"><img ng-src="{{ '/styles/images/icons/loans/'+loan.Title.replace(' ', '-').replace('&', '-')+'.png' }}" /> {{ loan.Title }}</h3>
+
+                    <div ng-repeat="field in loan.Fields" class="cg-editable" label="{{ field }}" field="loanData[field]"></div>
+                </fieldset>
+            </form>
+        </tab>
+    </tabset>
+</div>

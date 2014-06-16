@@ -1,0 +1,32 @@
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th class="selectbox"></th>
+            <th>Name</th>
+            <th sort-by="TotalArea">Area (SQF)</th>
+            <th>Country</th>
+            <th>Region</th>
+            <th>Sub Region</th>
+            <th>Description</th>
+            <th sort-by="AssetType">Asset Type</th>
+            <th>Task Status(es)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="property in properties | filter:search | orderBy:sort.dir+sort.name">
+            <td class="selectbox"><input type="checkbox" ng-checked="property.checked" ng-model="property.checked" /></td>
+            <td><a ui-sref="property.edit({ Uid: property.Uid })">{{ property.Name }}</a></td>
+            <td>{{ property.TotalArea }}</td>
+            <td>{{ property.Country }}</td>
+            <td>{{ property.Region }}</td>
+            <td>{{ property.SubRegion }}</td>
+            <td class="description">{{ property.Description }}</td>
+            <td>{{ property.AssetType }}</td>
+            <td>
+                <span ng-repeat="workflow in property.Workflows">
+                    {{ workflow.Workflow }} <span class="workflow-status {{ workflow.Status.replace(' ', '-').toLowerCase() }}">{{ workflow.Status }}</span>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

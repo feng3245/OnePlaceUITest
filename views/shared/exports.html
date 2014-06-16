@@ -1,0 +1,37 @@
+<div class="exports">
+
+    <div class="big-button" ng-if="property.$resolved && property.CurrentModel.IsFulfilled">
+        <button class="button button-orange" ng-click="openCougarWModal()" ng-if="!property.CurrentModel.isLocked && !property.CurrentModel.CheckedOutBy && property.$resolved">Edit</button>
+        <a href="{{ cougarConfig.API_HOST }}services/models/{{ property.CurrentModel.Uid }}/Edit?authtoken={{ user.AccessToken }}" class="button button-orange" ng-if="!property.CurrentModel.isLocked && property.CurrentModel.CheckedOutBy == user.UserName">Edit</a>
+        <a href="{{ cougarConfig.API_HOST }}services/models/{{ property.CurrentModel.Uid }}/View?authtoken={{ user.AccessToken }}" class="button" ng-if="property.CurrentModel.isLocked || (property.CurrentModel.CheckedOutBy != user.UserName && property.CurrentModel.CheckedOutBy)">View</a>
+
+        <!-- <ul class="dropdown-menu">
+            <li>
+                <a href="{{ cougarConfig.API_HOST }}services/cougarw/{{ property.CurrentModel.Uid }}/Edit?authtoken={{ user.AccessToken }}">Edit</a>
+            </li>
+            <li>
+                <a href="{{ cougarConfig.API_HOST }}services/cougarw/{{ property.CurrentModel.Uid }}/View?authtoken={{ user.AccessToken }}">Download in read-only mode</a>
+            </li>
+        </ul> -->
+    </div>
+
+    <div class="big-button">
+        <button class="button" dropdown-toggle>Export</button>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="/argus_export_20141405.sf"><img src="/styles/images/icons/argus.png" width="16" style="margin-right:2px;" /> Argus</a>
+            </li>
+            <li>
+                <a><img src="/styles/images/icons/excel.png" width="16" style="margin-right:6px;" />Excel</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <a href="{{ cougarConfig.API_HOST }}services/models/{{ property.Uid }}/View" class="button"><img src="/styles/images/logo-black.png" width="103" /></a>
+    <button class="button"><img src="/styles/images/argus-export.png" /></button>
+    <button class="button"><img src="/styles/images/excel-export.png" /></button> -->
+
+    <a><i class="i-icon i-mail"></i></a>
+    <a><i class="i-icon i-twitter"></i></a>
+    <a><i class="i-icon i-facebook"></i></a>
+</div>

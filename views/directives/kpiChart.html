@@ -1,0 +1,9 @@
+<h2>{{ name }}</h2>
+
+<dl ng-repeat="kpi in kpis">
+    <h3>{{ kpi.Name }}</h3>
+    <div ng-repeat="(name, value) in kpi.Values">
+        <dt>{{ name }}</dt>
+        <dd>{{ value }}</dd>
+    </div>
+</dl>

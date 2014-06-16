@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><img src="/styles/images/close-modal.png" /></button>
+    <h3>New Note</h3>
+</div>
+<div class="modal-body">
+    <form class="new-portfolio">
+        <label>Subject</label>
+        <input type="text" />
+
+        <label>Note</label>
+        <textarea></textarea>
+
+        <div class="attachments">
+            <span class="attachment">
+                doc.pdf
+                <button>&times;</button>
+            </span>
+            <span class="attachment">
+                txt.pdf
+                <button>&times;</button>
+            </span>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    
+    <button class="button button-orange" ng-click="ok()">Create Note</button>
+</div>

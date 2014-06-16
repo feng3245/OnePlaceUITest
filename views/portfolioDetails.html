@@ -1,0 +1,20 @@
+<nav class="breadcrumbs">
+    <a href="#/portfolios">Portfolios</a>
+</nav>
+<h1>{{ portfolio.Name }} <span class="status {{ portfolio.Status }}">{{ portfolio.Status }}</span></h1>
+
+<div hamburger-nav>
+    <nav class="hamburger">
+        <a href="#sub-navigation" class="open-menu"></a>
+    </nav>
+    <nav class="hamburger-nav" id="sub-navigation">
+        <a ui-sref="portfolio.properties({ Uid: portfolio.Uid })" class="icon icon-reports">Properties <span></span></a>
+        <a ui-sref="portfolio.edit({ Uid: portfolio.Uid })" class="icon icon-eye">Details <span></span></a>
+        <a href="#" class="icon icon-lease">Leases &amp; Units <span></span></a>
+        <a href="#" class="icon icon-workflow">Tasks <span></span></a>
+        <a href="#" class="icon icon-loans">Loans <span></span></a>
+        <a href="#" class="icon icon-attachments">Attachments <span></span></a>
+    </nav>
+    <section class="entity-details clearfix" ui-view>
+    </section>
+</div>

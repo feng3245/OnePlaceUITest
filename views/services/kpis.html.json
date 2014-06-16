@@ -1,0 +1,39 @@
+{
+  'Property Details': {
+    'Net Leasable Area': 100000,
+    '# Floors': 5,
+    '# Parking Spaces': 100,
+    'Property Valuation': 1000000
+  },
+  'Debt': {
+    'LTV Ratio': '0.75',
+    'DSC Ratio': '0.65'
+  },
+  'Rent': {
+    'Gross Potential Rent (psf)': '$5.00',
+    'Gross Rent (psf)': '$4.00',
+    'Gross Potential vs Gross Rent Variance ($/psf)': '$1.00',
+    'Gross Potential vs Gross Rent Variance (%)': '-0.2%',
+    'Net Rent (psf)': '$3.75',
+    'Gross vs Net Rent Variance ($/psf)': '$3.75',
+    'Gross vs Net Rent Variance (%)': '-0.15%'
+  },
+  'Area': {
+    'Occupied Area': '125,000',
+    'Expiring Area': '25,000',
+    'Occupancy': '80%',
+    'Total Area': '100,000'
+  },
+  'Recoveries': {
+    'Recovery Revenue': '$10,000',
+    'Recoverable Expenses': '$15,000',
+    'Recovery Ratio': '66.67%'
+  },
+  'Revenue': {
+    'NOI': '$500,000',
+    'Less: Capex': '-$100,000',
+    'NCF after Capex': '-$100,000',
+    'Less: Debt Service': '-$200,000',
+    'NCF after Debt Service': '-$300,000'
+  }
+};

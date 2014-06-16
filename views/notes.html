@@ -1,0 +1,26 @@
+<input type="text" placeholder="Search" class="search-query" data-ng-model="search" />
+<button class="button" ng-click="openNewNoteModal()">New Note</button>
+
+<br /><br />
+
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Note</th>
+            <th sort-by="CreatedBy">Created By</th>
+            <th sort-by="CreatedOn">Created On</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="note in notes | filter:search | orderBy:sort.dir+sort.name">
+            <td>{{ note.Date | date:'MM/dd/yyyy' }}</td>
+            <td>{{ note.Subject }}</td>
+            <td><span class="note-attachment" ng-if="$index == 1">attachment.pdf</span> <span class="note-attachment" ng-if="$index == 3">doc.pdf</span> {{ note.Note }}</td>
+            <td>{{ note.CreatedBy }}</td>
+            <td>{{ note.CreatedOn | date:'MM/dd/yyyy h:mma'}}</td>
+        </tr>
+    </tbody>
+    </tr>
+</table>

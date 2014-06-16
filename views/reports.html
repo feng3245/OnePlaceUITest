@@ -1,0 +1,39 @@
+<tabset>
+    <tab heading="Reports">
+        <div class="btn-group view-selector">
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'List'"><img src="/styles/images/shape-list.png" /></button>
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'Table'"><img src="/styles/images/shape-table.png" /></button>
+        </div>
+        <input type="text" placeholder="Search" class="search-query" data-ng-model="search.Name" />
+        <!-- <button class="button" ng-click="openNewReportModal()">New Report</button> -->
+
+        <h2>Reports</h2>
+
+        <!-- <div class="filters">
+            <select ui-select2 ng-model="search.Type">
+                <option value="">Type</option>
+                <option value="{{prop_Type}}" ng-repeat="prop_Type in reports | uniqProp:'Type'">{{prop_Type}}</option>
+            </select>
+            <input type="text" ui-select2="select2Options" ng-model="$parent.search.Tags" style="min-width:200px" ng-if="reports.$resolved"/>
+            <button class="button clear-filters" ng-click="clear()"><img src="/styles/images/big-x.png" /></button>
+        </div> -->
+
+        <ng-include src="'/views/reports/'+settings.layout+'.html'" class="reports"></ng-include>
+
+        <div class="spinner" ng-if="!reports.$resolved"></div>
+
+        <p class="no-results" ng-show="(reports | filter:search).length===0">Sorry, there are no reports available</p>
+    </tab>
+    <tab heading="Stacking Plan">
+        <h2 class="section-heading">Stacking Plan</h2>
+        <iframe ng-src="{{ $sce.trustAsResourceUrl(stacking_url) }}" ng-if="stacking_url"
+            width="100%" style="height: 1278px;">
+        </iframe>
+    </tab>
+    <tab heading="Rent Roll">
+        <h2 class="section-heading">Rent Roll</h2>
+        <iframe ng-src="{{ $sce.trustAsResourceUrl(rentroll_url) }}" ng-if="rentroll_url"
+            width="100%" style="height: 1278px;">
+        </iframe>
+    </tab>
+</tabset>

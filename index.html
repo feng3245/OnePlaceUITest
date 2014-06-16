@@ -1,0 +1,133 @@
+<!doctype html>
+<html ng-app="cougarApp" ng-class="$state.current.name.replace('.','-')+'-state'">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cougar OnePlace</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/select2/select2.css">
+        <link rel="stylesheet" href="styles/fonts/fonts.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/leaseGraph.css">
+        <!-- endbuild -->
+</head>
+  <body class="unstated" ng-class="{ stated: $state.current.name, demo: isDemo }">
+    <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <header id="header">
+        <div class="user-info dropdown">
+            <a dropdown-toggle>{{ user.FullName || user.UserName }}</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a><img src="/styles/images/icons/user.png" /> My Account</a>
+                    <a><img src="/styles/images/icons/download.png" /> Download</a>
+                    <a href="/" ng-click="logout()"><img src="/styles/images/icons/export.png" /> Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="user-info dropdown" ng-if="system">
+            <a dropdown-toggle>View: {{ activeModel.ModelName }}</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a ng-repeat="model in system.Models" ng-class="{ active: model.Code == activeModel.Code }" ng-click="$parent.activeModelCode = model.Code; $parent.activeModel = model">{{ model.ModelName }}</a>
+                </li>
+            </ul>
+        </div>
+        <nav>
+            <a href="/#/login" id="logo"><img src="/styles/images/onePlace.png" alt="Home" /></a>
+            <ul>
+                <li ng-repeat="nav in ['Portfolios', 'Properties', 'Leases', 'Loans', 'Tasks']"><a ui-sref="{{ nav == 'Tasks' ? 'workflows' : nav.toLowerCase() }}" ui-sref-active="active" class="nav-{{ nav.toLowerCase() }}">{{ nav }}</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main ui-view>
+
+    </main>
+
+    <footer id="footer">
+
+    </footer>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/select2/select2.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+
+        <!-- build:js scripts/modules.js -->
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/underscore.string/lib/underscore.string.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-select2/src/select2.js"></script>
+        <script src="bower_components/angular-currency-filter/dist/currency-filter.min.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <script src="bower_components/Faker/Faker.js"></script>
+        <script src="bower_components/ng-file-upload/angular-file-upload.js"></script> 
+        <script src="scripts/misc.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/properties.js"></script>
+        <script src="scripts/services/property.js"></script>
+        <script src="scripts/services/cougarConfig.js"></script>
+        <script src="scripts/services/cougarHttpInceptor.js"></script>
+        <script src="scripts/controllers/propertyDetails.js"></script>
+        <script src="scripts/filters/uniqProp.js"></script>
+        <script src="scripts/services/Portfolio.js"></script>
+        <script src="scripts/controllers/styleguide.js"></script>
+        <script src="scripts/controllers/portfolios.js"></script>
+        <script src="scripts/controllers/portfolioDetails.js"></script>
+        <script src="scripts/services/lease.js"></script>
+        <script src="scripts/services/Report.js"></script>
+        <script src="scripts/controllers/reports.js"></script>
+        <script src="scripts/directives/cgTable.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/directives/hamburgerNav.js"></script>
+        <script src="scripts/controllers/Leases.js"></script>
+        <script src="scripts/directives/leaseGraph.js"></script>
+        <script src="scripts/controllers/loans.js"></script>
+        <script src="scripts/directives/cgEditable.js"></script>
+        <script src="scripts/directives/openReport.js"></script>
+        <script src="scripts/controllers/reportDetails.js"></script>
+        <script src="scripts/controllers/Notes.js"></script>
+        <script src="scripts/directives/tagging.js"></script>
+        <script src="scripts/controllers/workflow.js"></script>
+        <script src="scripts/directives/kpi-chart.js"></script>
+        <script src="scripts/controllers/models.js"></script>
+        <script src="scripts/controllers/kpi.js"></script>
+        <script src="scripts/services/kpi.js"></script>
+        <script src="scripts/services/Model.js"></script>
+        <script src="scripts/services/loan.js"></script>
+        <script src="scripts/controllers/propertyLoans.js"></script>
+        <script src="scripts/controllers/loanDetails.js"></script>
+        <script src="scripts/directives/checkAll.js"></script>
+        <script src="scripts/controllers/workflows.js"></script>
+        <script src="scripts/services/Workflow.js"></script>
+        <script src="scripts/services/File.js"></script>
+        <script src="scripts/directives/dragAndDrop.js"></script>
+        <script src="scripts/services/propertyLease.js"></script>
+        <script src="scripts/filters/dashUid.js"></script>
+        <script src="scripts/services/Task.js"></script>
+        <script src="scripts/controllers/Tasks.js"></script>
+        <script src="scripts/directives/imageUploader.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

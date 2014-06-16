@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><img src="/styles/images/close-modal.png" /></button>
+    <h3>Assign the Selected Portfolios</h3>
+</div>
+<div class="modal-body assign-modal">
+    <form class="assign-portfolio">
+        <input type="hidden" ng-model="task.ObjectType" value="Portfolio" />
+
+        <label>Tasks</label>
+        <p><input type="checkbox" ng-model="task.isBudget" /> Budgeting</p>
+        <p><input type="checkbox" ng-model="task.isValuation" /> Valuation</p>
+
+        <label>Group</label>
+        <select ng-model="task.Group">
+            <option>Select a Group</option>
+            <option ng-repeat="group in system.Groups" value="{{ group }}">{{ group }}</options>
+        </select>
+
+        <label>Expected Due Date</label>
+        <input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="task.DueDate" is-open="dateopen" close-text="Close" ng-focus="dateopen = true;"/>
+
+        <!--
+        <label>Portfolio Names</label>
+        <ul class="selected-list">
+            <li class="selected-model" ng-repeat="portfolio in selected_portfolios">{{ portfolio.Name }}</li>
+        </ul>
+        -->
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="button button-orange" ng-click="ok()">Assign</button>
+</div>

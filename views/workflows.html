@@ -1,0 +1,50 @@
+<h1>Tasks</h1>
+
+<div class="filters">
+    <h2>Filter by</h2>
+    <select ui-select2 ng-model="search.CreatedBy" data-placeholder="CreatedBy" ng-if="workflows.$resolved">
+        <option value="">Owned By</option>
+        <option value="{{prop_CreatedBy}}" ng-repeat="prop_CreatedBy in workflows | uniqProp:'CreatedBy'">{{prop_CreatedBy}}</option>
+    </select>
+    <select ui-select2 ng-model="search.CheckedOutBy" data-placeholder="workflows" ng-if="workflows.$resolved">
+        <option value="">Checked Out By</option>
+        <option value="{{prop_CheckedOutBy}}" ng-repeat="prop_CheckedOutBy in workflows | uniqProp:'CheckedOutBy'">{{prop_CheckedOutBy}}</option>
+    </select>
+    <input type="text" placeholder="Search" class="search-query" ng-model="search.$" />
+</div>
+
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th sort-by="Name">Property Name</th>
+            <th sort-by="Workflow">Task Status</th>
+            <th sort-by="CreatedBy">Owned By</th>
+            <th sort-by="CheckedOutBy">Checked Out By</th>
+            <th sort-by="LastModifedOn">Last Updated</th>
+            <th sort-by="DueDate">Due Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="workflow in workflows | filter:search | orderBy:sort.dir+sort.name">
+            <td><a ui-sref="property.edit({ Uid: workflow.PropertyUid })">{{ workflow.Name }}</a></td>
+            <td style="white-space:nowrap">
+                <span ng-if="workflow.Code == 'ABP'">Budget</span>
+                <span ng-if="workflow.Code == 'AVL'">Valuation</span>
+                <span class="workflow-status {{ workflow.Status.replace(' ', '-').toLowerCase() }}">{{ workflow.Status }}</span>
+            </td>
+            <td>{{ workflow.CreatedBy }}</td>
+            <td>{{ workflow.CheckedOutBy }}</td>
+            <td>{{ moment(workflow.LastModifedOn).format('MM/DD/YYYY') }}</td>
+            <td>{{ moment(workflow.DueDate).format('MM/DD/YYYY') }}</td>
+            <td class="actions">
+                <a tooltip="Edit"><i class="i2-icon i2-crayon"></i></a>
+                <a tooltip="View" ui-sref="property.edit({ Uid: workflow.PropertyUid })"><i class="i2-icon i2-view"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="spinner" ng-if="!workflows.$resolved"></div>
+
+<p class="no-results" ng-show="(workflows | filter:search).length===0">Sorry, there are no workflows available</p>

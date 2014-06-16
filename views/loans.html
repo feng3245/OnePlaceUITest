@@ -1,0 +1,35 @@
+<div class="btn-group view-selector">
+    <button type="button" class="btn btn-primary" ng-model="layout" btn-radio="'Tile'"><img src="/styles/images/shape-tile.png" /></button>
+    <button type="button" class="btn btn-primary" ng-model="layout" btn-radio="'Table'"><img src="/styles/images/shape-table.png" /></button>
+</div>
+<input type="text" placeholder="Search" class="search-query" data-ng-model="search.Name" />
+
+<h1><span ng-if="property">Property</span> Loans</h1>
+
+<div class="filters">
+    <h2>Filter by</h2>
+
+    <select ui-select2 ng-model="search.Type" data-placeholder="Status" ng-if="property">
+        <option value="">Type</option>
+        <option value="{{prop_Type}}" ng-repeat="prop_Type in loans | uniqProp:'Type'">{{prop_Type}}</option>
+    </select>
+
+    <select ui-select2 ng-model="search.Status" data-placeholder="Status" ng-if="!property">
+        <option value="">Status</option>
+        <option value="{{prop_Status}}" ng-repeat="prop_Status in loans | uniqProp:'Status'">{{prop_Status}}</option>
+    </select>
+    <select ui-select2 ng-model="search.Region" data-placeholder="Region" ng-if="!property">
+        <option value="">Region</option>
+        <option value="{{prop_Region}}" ng-repeat="prop_Region in loans | uniqProp:'Region'">{{prop_Region}}</option>
+    </select>
+    <select ui-select2 ng-model="search.SubRegion"data-placeholder="SubRegion" ng-if="!property">
+        <option value="">Sub-Region</option>
+        <option value="{{prop_SubRegion}}" ng-repeat="prop_SubRegion in loans | uniqProp:'SubRegion'">{{prop_SubRegion}}</option>
+    </select>
+
+    <input type="text" ui-select2="select2Options" ng-model="search.Tags" style="min-width:200px" />
+
+    <button class="button clear-filters" ng-click="clear()"><img src="/styles/images/big-x.png" /></button>
+</div>
+
+<ng-include src="'/views/loans/'+layout+'.html'" class="loans"></ng-include>

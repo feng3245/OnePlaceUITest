@@ -1,0 +1,116 @@
+[
+   {
+      "Id": 1,
+      "Name": "Legacy Park Dashboard I (TB)",
+      "Type":"Property",
+      "Tableau": true,
+      "Embed": "<script type='text/javascript' src='https://online.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1024px; height: 472px;'><object class='tableauViz' width='1024' height='472' style='display:none;'><param name='host_url' value='https%3A%2F%2Fonline.tableausoftware.com%2F' /> <param name='site_root' value='&#47;t&#47;cougar' /><param name='name' value='LegacyOffice&#47;LegacyParkDashboardI' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /></object></div>"
+   },
+   {
+      "Id": 2,
+      "Name": "Legacy Park Dashboard II (TB)",
+      "Type":"Property",
+      "Tableau": true,
+      "Embed": "<script type='text/javascript' src='https://online.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1024px; height: 472px;'><object class='tableauViz' width='1024' height='472' style='display:none;'><param name='host_url' value='https%3A%2F%2Fonline.tableausoftware.com%2F' /> <param name='site_root' value='&#47;t&#47;cougar' /><param name='name' value='LegacyOffice&#47;LegacyParkDashboardII' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /></object></div>"
+   },
+   {
+      "Name":"Annual Trending Report",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fAnnual+Trending+Report"
+   },
+   {
+      "Name":"Argus Cashflow Styled Annual",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fArgus+Cashflow+Styled+Annual"
+   },
+   {
+      "Name":"Budget To Actual Variance",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fBudget+To+Actual+Variance"
+   },
+   {
+      "Name":"Capital Costs",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fCapital+Costs"
+   },
+   {
+      "Name":"DCF Valuation - Detail",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fDCF+Valuation+-+Detail"
+   },
+   {
+      "Name":"DCF Valuation - Summary",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fDCF+Valuation+-+Summary"
+   },
+   {
+      "Name":"Detailed Expiring Leases (Next 5 Years)",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fDetailed+Expiring+Leases+(Next+5+Years)"
+   },
+   {
+      "Name":"Financial Time Series",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fFinancial+Time+Series"
+   },
+   {
+      "Name":"Lease Activity Report",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fLease+Activity+Report"
+   },
+   {
+      "Name":"Lease Expiry Profile by Area",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fLease+Expiry+Profile+by+Area"
+   },
+   {
+      "Name":"Lease Expiry Profile by Current Rent",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fLease+Expiry+Profile+by+Current+Rent"
+   },
+   {
+      "Name":"Occupancy Detail",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fOccupancy+Detail"
+   },
+   {
+      "Name":"Over Under Market Rent",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fOver+Under+Market+Rent"
+   },
+   {
+      "Name":"Quarterly Variance Report",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fQuarterly+Variance+Report"
+   },
+   {
+      "Name":"Recovery Ratio",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fRecovery+Ratio"
+   },
+   {
+      "Name":"Rent Roll",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fRent+Roll"
+   },
+   {
+      "Name":"Stacking Plan",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fStacking+Plan"
+   },
+   {
+      "Name":"Stacking Plan Chart",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fStacking+Plan+Chart"
+   },
+   {
+      "Name":"Tenant by Tenant",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fTenant+by+Tenant"
+   },
+   {
+      "Name":"Valuation Comparison",
+      "Type":"Property",
+      "URL":"http://ecancelliere:3M@g1n5!@54.200.175.7/ReportServer/Pages/ReportViewer.aspx?%2fCougar.BudgetBI%2fValuation+Comparison"
+   }
+]

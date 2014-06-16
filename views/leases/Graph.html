@@ -1,0 +1,36 @@
+<div class="lease-graph-container">
+    <div class="background">
+        <div class="year-col" ng-repeat="year in years">
+            <div class="year-info">
+                <p>{{ year }}</p>
+            </div>
+            <span ng-repeat="q in [1,2,3,4]">Q{{q}}</span>
+            <div class="quarter-info">
+                <div class="quarter" ng-repeat="q in [1,2,3,4]" ng-class="'q'+q"></div>
+            </div>
+        </div>
+    </div>
+    <div class="foreground">
+        <div class="unit-row" ng-repeat="leaseGroup in groupedLeases">
+            <div class="lease-bar" ng-repeat="lease in leaseGroup" ng-style="{ width: lease.width(years)+'%', left: lease.left(years)+'%' }">
+                <div class="inner" ng-class="{ green: lease['Lease Status'] == 'Executed', red: lease['Lease Status'] == 'Negotiation', blue: lease['Lease Status'] == 'Prospective' }" popover="{{ lease.Tenant }}" popover-trigger="mouseenter">
+                    <h4>{{ lease.Tenant }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="graph-legend">
+    <h3>Legend</h3>
+    <dl>
+        <dt class="green lease-bar"></dt>
+        <dd>Executed</dd>
+
+        <dt class="red lease-bar"></dt>
+        <dd>Negotiation</dd>
+
+        <dt class="blue lease-bar"></dt>
+        <dd>Prospective</dd>
+    </dl>
+</section>

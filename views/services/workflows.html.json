@@ -1,0 +1,50 @@
+[
+    {
+        "PropertyId": 128,
+        "Name": "Legacy Park",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "John Smith",
+        "Updated": "12/31/2013",
+        "Due": "12/31/2013"
+    },
+    {
+        "PropertyId": 129,
+        "Name": "Frisco Town Center",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "Marcel Barello",
+        "Updated": "12/21/2013",
+        "Due": "12/21/2013"
+    },
+    {
+        "PropertyId": 130,
+        "Name": "Terria Del Fuego",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "Melisa Francisco",
+        "Updated": "12/12/2013",
+        "Due": "12/12/2013"
+    },
+    {
+        "PropertyId": 131,
+        "Name": "Finance Existing",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "Paul Okenfol",
+        "Updated": "12/31/2013",
+        "Due": "12/31/2013"
+    },
+    {
+        "PropertyId": 132,
+        "Name": "3333 Wisconsin Avenue",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "John Smith",
+        "Updated": "12/31/2013",
+        "Due": "12/31/2013"
+    },
+    {
+        "PropertyId": 133,
+        "Name": "Park 19 - Retail",
+        "OwnedBy": "Brookfield",
+        "CheckedOutBy": "Thomas Pagorsky",
+        "Updated": "12/20/2013",
+        "Due": "12/20/2013"
+    }
+]

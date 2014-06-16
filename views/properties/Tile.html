@@ -1,0 +1,21 @@
+<article class="tile" ng-repeat="property in properties | filter:search | orderBy:sort.dir+sort.name">
+
+    <a href="#/propertyDetails/{{property.Uid}}"><img ng-src="{{cougarConfig.API_HOST}}/Content/images/thumbnail-{{property.ImgPath}}" class="thumb" /></a>
+
+    <h2><a href="#/propertyDetails/{{property.Uid}}">{{property.Name}}</a></h2>
+
+    <p class="description">{{property.Description}}</p>
+
+    <ul class="details">
+        <!-- <li class="address" ng-if="property.StreetAddress">{{property.StreetAddress}}</li> -->
+        <li class="valuation" ng-if="property.Valuation">{{property.Valuation | currency:'':0}}</li>
+        <li class="area" ng-if="property.TotalArea">{{property.TotalArea}} SQF</li>
+    </ul>
+
+    <ul class="controls actions">
+        <li ng-if="property.Status"><span class="status {{property.Status}}">{{ property.Status }}<span></li>
+        <li class="tag"><button tooltip="Tag Property" tagging-toggle><img src="/styles/images/tag.png" alt="Tag" /></button></li>
+        <li class="add-to-portfolio" tooltip="Add to a Portfolio"><button ng-click="openPortfolioModal(property)"><img src="/styles/images/plus.png" alt="Plus" /></button>
+    </ul>
+    <div class="tagging" resource="property" tags="tags"></div>
+</article>

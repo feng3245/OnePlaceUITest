@@ -1,0 +1,37 @@
+{
+  "name": "angular-currency-filter",
+  "version": "1.0.0",
+  "authors": [
+    "Oliver Kovacs <zee@thezee.hu>"
+  ],
+  "description": "Extend angular's built in currency filter.",
+  "main": "./src/currency-filter.js",
+  "keywords": [
+    "angularjs",
+    "currency",
+    "filter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.1",
+    "angular-mocks": "~1.2.1"
+  },
+  "homepage": "https://github.com/Zmetser/angular-currency-filter",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "4563806b2839c088c6de244065d0cfe52484907a"
+  },
+  "_source": "git://github.com/Zmetser/angular-currency-filter.git",
+  "_target": "~1.0.0",
+  "_originalSource": "angular-currency-filter",
+  "_direct": true
+}

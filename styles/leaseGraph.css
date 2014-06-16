@@ -1,0 +1,175 @@
+.lease-graph-container {
+  max-width: 1320px;
+  position: relative;
+  padding: 65px 0 5px 0;
+  margin-bottom:20px;
+}
+.lease-graph-container .background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+.lease-graph-container .foreground {
+  position: relative;
+  z-index: 100;
+}
+.lease-graph-container .unit-row {
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  height:80px;
+}
+.lease-graph-container .lease-bar {
+  height: 80px;
+  width: 32%;
+  padding:6px;
+  margin-left: 0px;
+  display: inline-block;
+  position:absolute;
+}
+.lease-graph-container .lease-bar .inner {
+  border-radius: 5px;
+  background-color: #eee;
+  border:1px solid #c9c9c9;
+  height: 100%;
+  padding:3px 5px 5px 5px;
+  box-shadow:inset 0 1px 1px white, 0 1px 0 0 rgba(0,0,0,0.08);
+}
+
+.graph-legend .lease-bar {
+  position:static;
+  height:14px;
+  width:14px;
+  padding:0;
+  border:1px solid #c9c9c9;
+  box-shadow:inset 0 1px 1px white, 0 1px 0 0 rgba(0,0,0,0.08);
+  border-radius:3px;
+}
+
+.lease-bar .green, .lease-bar.green {
+  background:#ecefda;
+  background:linear-gradient(to bottom,  #ecefda 0%, #d8dac7 98%)
+}
+.green td {
+  background:#e6e9d6;
+}
+.lease-bar .blue, .lease-bar.blue {
+  background:#cce0e4;
+  background:linear-gradient(to bottom,  #cce0e4 0%, #bacdd0 98%)
+}
+.blue td {
+  background:#d6e5e8;
+}
+.lease-bar .red, .lease-bar.red {
+  background:#e4d1cc;
+  background:linear-gradient(to bottom,  #e4d1cc 0%, #d0bfba 98%)
+}
+.red td {
+  background:#e4d1cc;
+}
+.green td, .blue td, .red td {
+  border-color:#c5ccc6!important;
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.5)!important;
+}
+
+.lease-bar .purple {
+  background:#dbd9ec;
+  background:linear-gradient(to bottom,  #dbd9ec 0%, #c8c6d8 98%)
+}
+
+.lease-graph-container .lease-bar .inner
+
+.lease-graph-container .lease-bar p {
+  margin: 0px;
+}
+.lease-graph-container .year-col {
+  width: 20%;
+  height: 117%;
+  float: left;
+  text-align: center;
+}
+.year-info {
+  font-size:16px;
+  font-weight:bold;
+}
+.year-info p {
+  margin:0;
+  padding:5px 0;
+}
+.year-info ~ span {
+  width:23%;
+  margin:0 1%;
+  float:left;
+  font-size:16px;
+  font-weight:bold;
+  opacity:0.6;
+}
+.quarter-info {
+  clear:left;
+}
+
+.lease-graph-container .quarter-info {
+  height: 83.5%;
+  text-align: center;
+  font-size: 0px;
+}
+.lease-graph-container .quarter-info .quarter {
+  width: 23%;
+  height: 100%;
+  margin: 1%;
+  display: inline-block;
+  font-size: 0px;
+  border-radius: 5px;
+  opacity:0.7;
+  background-color: #d9d6e9;
+}
+.lease-graph-container .year-col .quarter {
+  background-color: #f5f6f7;
+}
+
+.lease-bar h4 {
+  font-size:16px;
+  font-weight:600;
+  text-transform:uppercase;
+  opacity:0.8;
+  text-align:center;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.popover {
+  font-size:22px;
+  color:#5d5c5c;
+  font-weight:600;
+  line-height:28px;
+  background:#fafafa;
+  border:none;
+}
+
+.popover.top .arrow:after {
+  border-top-color:#fafafa;
+}
+
+.graph-legend h3 {
+  color:#5d5c5c;
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:25px;
+  margin-top:50px;
+}
+.graph-legend dt, .graph-legend dd {
+  display:inline-block;
+  margin:0 5px 0 0;
+  vertical-align:middle;
+}
+.graph-legend dt {
+  margin-top:-1px;
+}
+.graph-legend dd {
+  margin-right:30px;
+}

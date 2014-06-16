@@ -1,0 +1,38 @@
+<h1>Models</h1>
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th sort-by="Name">Model Name</th>
+            <th sort-by="Description">Description</th>
+            <th sort-by="CreatedBy">Created By</th>
+            <th sort-by="Workflow">Tasks</th>
+            <th sort-by="LastModified">Last Updated</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="model in models | orderBy:sort.dir+sort.name" ng-click="switchKPI(model)" ng-class="{ active: kpiModel == model }">
+            <td style="white-space:nowrap;">{{ model.ModelName || model.Name }} <span ng-if="model.Code == 'LR'" class="model-tag">Primary</span><span ng-if="model.Workflow == 'Approved'" class="model-tag approved">Approved</span></td>
+            <td>{{ model.Description }}</td>
+            <td>{{ model.CreatedBy }}</td>
+            <td>
+                {{ model.Workflow }}
+                <span class="workflow-status {{ workflow.Status.replace(' ', '-').toLowerCase() }}">{{ model.Status }}</span>
+            </td>
+            <td>{{ model.LastModified }}</td>
+            <td class="actions">
+                <div class="action-wrapper">
+                    <i class="i2-icon i2-crayon" dropdown-toggle></i>
+                    <ul class="dropdown-menu" ng-class="{ liveAction: model.name == 'Live' }">
+                        <li ng-if="!property.CurrentModel.isLocked && property.CurrentModel.CheckedOutBy == user.UserName" ng-hide="model.isFake"><a href="{{ cougarConfig.API_HOST }}services/models/{{ model.Uid }}/Edit?authtoken={{ user.AccessToken }}">Edit</a></li>
+                        <li ng-if="property.CurrentModel.isLocked || (property.CurrentModel.CheckedOutBy != user.UserName && property.CurrentModel.CheckedOutBy)" ng-hide="model.isFake"><a href="{{ cougarConfig.API_HOST }}services/models/{{ property.CurrentModel.Uid }}/View?authtoken={{ user.AccessToken }}">View</a></li>
+                        <li ng-if="model.name != 'Live'" ng-hide="model.isFake"><a>Delete</a></li>
+                        <li ng-if="!$first"><a ui-sref="property.workflow({ Uid: property.Uid, model: model.name })">Start Task</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    <tbody>
+</table>
+
+<section class="kpi-chart" name="{{ kpiModel.name }} KPIs" kpis="kpis" ng-if="kpiModel.Name"></section>

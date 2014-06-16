@@ -1,0 +1,34 @@
+<tabset>
+    <tab heading="My Portfolios">
+        <div class="btn-group view-selector">
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'List'"><img src="/styles/images/shape-list.png" /></button>
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'Table'"><img src="/styles/images/shape-table.png" /></button>
+        </div>
+        <button class="button new-model" ng-click="openNewPortfolioModal()">New Portfolio</button>
+
+        <h1>Portfolios</h1>
+
+        <div class="filters">
+            <input type="checkbox" check-all models="portfolios" />
+
+            <div class="selected-actions">
+                <button class="button" ng-click="openAssignModal()">Assign</button>
+                <button class="button">Share</button>
+                <button class="button" ng-hide="isDemo">Flag</button>
+            </div>
+
+            <input type="text" placeholder="Search" class="search-query" data-ng-model="search" />
+        </div>
+
+        <ng-include src="'/views/portfolios/'+settings.layout+'.html'" class="portfolios"></ng-include>
+
+        <div class="spinner" ng-if="!portfolios.$resolved"></div>
+
+        <p class="no-results" ng-show="(portfolios | filter:search).length===0">Sorry, there are no portfolios available</p>
+    </tab>
+    <tab heading="Dashboard">
+        <iframe ng-src="{{ $sce.trustAsResourceUrl(tableau_url) }}" ng-if="tableau_url"
+                width="100%" style="height: 850px">
+        </iframe>
+    </tab>
+</tabset>

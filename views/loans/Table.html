@@ -1,0 +1,29 @@
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th ng-if="!property">Property</th>
+            <th>Code</th>
+            <th>Type</th>
+            <th>Lender</th>
+            <th>Amount</th>
+            <th sort-by="EndDate">Remaining Term</th>
+            <th>Balance</th>
+            <th sort-by="Rate">Rate (%pa)</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="loan in loans | orderBy:sort.dir+sort.name">
+            <td ng-if="!property"><a ui-sref="property.edit({ Uid: loan.Property.Uid })">{{ loan.Property.Name }}</a></td>
+            <td><a ui-sref="property.loanDetails({ Uid: loan.Property.Uid, loan_id: loan.Code })">{{ loan.Code }}</a></td>
+            <td>{{ loan.Type }}</td>
+            <td>{{ loan.Lender }}</td>
+            <td>{{ loan.Amount | currency:'$':0 }}</td>
+            <td>{{ loan.EndDate.preciseDiff(moment()) }}</td>
+            <td>{{ loan.Balance | currency:'$':0 }}</td>
+            <td>{{ loan.Rate+'%' }}</td>
+            <td class="description">{{ loan.Description }}</td>
+        </tr>
+    </tbody>
+    </tr>
+</table>

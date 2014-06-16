@@ -1,0 +1,21 @@
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th class="selectbox"></th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>UID</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="portfolio in portfolios | filter:search | orderBy:sort.dir+sort.name">
+            <td class="selectbox"><input type="checkbox" ng-checked="portfolio.checked" ng-model="portfolio.checked" /></td>
+            <td><a ui-sref="portfolio.properties({ Uid: portfolio.Uid })" >{{ portfolio.Name }}</a></td>
+            <td>{{ portfolio.Code }}</td>
+            <td>{{ portfolio.Uid }}</td>
+            <td class="description">{{ portfolio.Description }}</td>
+        </tr>
+    </tbody>
+    </tr>
+</table>

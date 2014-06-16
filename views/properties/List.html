@@ -1,0 +1,29 @@
+<article class="list" ng-repeat="property in properties | filter:search | orderBy:sort.dir+sort.name | startFrom:curPage*perPage | limitTo:perPage" ng-if="properties.$resolved">
+
+    <div class="selectbox">
+        <td class="selectbox"><input type="checkbox" ng-checked="property.checked" ng-model="property.checked" /></td>
+    </div>
+
+    <a href="#/propertyDetails/{{property.Uid}}" class="r-arr"><img src="/styles/images/r-arr.png" alt="View Property" /></a>
+    <a href="#/propertyDetails/{{property.Uid}}">
+        <img ng-src="{{ property.PictureUrl }}" class="thumb" ng-if="property.Name != 'Legacy Park' && property.PictureUrl" style="max-height:138px" />
+        <img src="/styles/images/Legacy-Park-image.jpg" width="178" height="138" class="thumb" ng-if="property.Name == 'Legacy Park'" />
+    </a>
+    <h2><a href="#/propertyDetails/{{property.Uid}}">{{property.Name}}</a></h2>
+    <p class="description">{{property.Description}}</p>
+    <ul class="details">
+        <li class="status" ng-if="property.Workflows">
+            <span ng-repeat="workflow in property.Workflows">
+                {{ workflow.Workflow }} <span class="workflow-status {{ workflow.Status.replace(' ', '-').toLowerCase() }}">{{ workflow.Status }}</span>
+            </span>
+        </li>
+        <li class="address" ng-if="property.Street">{{property.Street}}</li>
+        <li class="area" ng-if="property.TotalArea">{{property.TotalArea | number }}</li>
+        <li class="valuation" ng-if="property.Valuation">{{property.Valuation | currency:'':0}}</li>
+        <li class="asset-type" ng-if="property.AssetType">{{ property.AssetType }}</li>
+    </ul>
+    <!-- <button class="button" tagging-toggle>Edit Tags</button>
+
+    <div class="tagging" resource="property" tags="tags"></div> -->
+
+</article>

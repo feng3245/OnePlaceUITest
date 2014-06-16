@@ -1,0 +1,29 @@
+<table class="table" cg-table>
+    <thead>
+        <tr>
+            <th sort-by="UnitDisplayName">Unit Details</th>
+            <th sort-by="NetLettableArea">NLA</th>
+            <th sort-by="Name">Lease Name</th>
+            <th sort-by="EndDate">O. End</th>
+            <th sort-by="Term">O. Term</th>
+            <!-- <th sort-by="AnnualAmount">Value</th> -->
+            <th sort-by="ContractPUPAChargeAt">C. R (PUPA)</th>
+            <th sort-by="RentalPerMonth">R. C. (PM)</th>
+            <th sort-by="RentalPUPA">R. C. (PA)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="lease in leases | filter:search | orderBy:sort.dir+sort.name" ng-class="{ green: lease['Lease Status'] == 'Executed', red: lease['Lease Status'] == 'Negotiation', blue: lease['Lease Status'] == 'Prospective' }">
+            <td>{{ lease.UnitDisplayName }}<br /><span class="lease-status {{ lease.UnitStatus.replace(' ', '-').toLowerCase() }}">{{ lease.UnitStatus }}</span></td>
+            <td>{{ lease.NetLettableArea | number }}</td>
+            <td>{{ lease.Name }}<br /><span class="lease-status {{ lease.Status.replace(' ', '-').toLowerCase() }}">{{ lease.Status }}</span></td>
+            <td>{{ moment(lease.EndDate).format('MM/DD/YYYY') }}</td>
+            <td>{{ lease.Term }}</td>
+            <!-- <td>{{ lease.AnnualAmount }}</td> -->
+            <td>{{ lease.ContractPUPAChargeAt }}</td>
+            <td>{{ lease.RentalPerMonth | currency:'$':2 }}</td>
+            <td>{{ lease.RentalPUPA | currency:'$':0 }}</td>
+        </tr>
+    </tbody>
+    </tr>
+</table>

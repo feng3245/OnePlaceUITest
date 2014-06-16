@@ -1,0 +1,25 @@
+<div class="login">
+
+    <img src="/styles/images/oneplace-logo.png" alt="Cougar Cloud" />
+
+    <div class="alert" ng-if="badLogin">
+        <strong>Oops!</strong> {{ badLogin }}
+    </div>
+
+    <form>
+        <label>Username</label><br />
+        <input type="text" ng-model="loginData.UserName" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Username" />
+
+        <label>Password</label><br />
+        <input type="password" ng-model="loginData.Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Password" />
+
+        <a ui-sref="login" class="forgot-password">Forgot password?</a>
+
+        <button class="button button-orange" ng-click="login($event)">Login</button>
+    </form>
+
+    <div class="not-registered">
+        <p>Not yet a registered user?</p>
+        <button class="button">Sign up</button>
+    </div>
+</div>

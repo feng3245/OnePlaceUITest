@@ -1,0 +1,19 @@
+<h2>Portfolio Details</h2>
+<form class="inline-editable">
+    <div class="entity-image">
+        <img ng-src="{{ portfolio.PictureUrl }}" />
+        <label for="property-picture">Image</label>
+        <input type="file" id="property-picture" ng-model="property.ImgUpload" />
+    </div>
+
+    <div class="cg-editable" label="Name" field="portfolio.Name" button="Done"></div>
+
+    <div class="cg-editable" label="Code" field="portfolio.Code" button="Done"></div>
+
+    <div class="cg-editable" label="Description" field="portfolio.Description" textarea button="Done"></div>
+</form>
+
+<hr />
+
+<button class="button button-orange save-changes" ng-click="portfolio.$update()">Save Changes</button>
+<button class="button cancel-changes" ng-click="portfolio.$get({ Uid: portfolio.Uid })">Cancel</button>

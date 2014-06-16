@@ -1,0 +1,74 @@
+<tabset>
+    <tab heading="{{ portfolio ? '' : 'My' }} Properties">
+        <div class="btn-group view-selector">
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'List'"><img src="/styles/images/shape-list.png" /></button>
+            <button type="button" class="btn btn-primary" ng-model="settings.layout" btn-radio="'Table'"><img src="/styles/images/shape-table.png" /></button>
+        </div>
+        <button class="button new-model" ng-click="openNewPropertyModal()">New Property</button>
+
+        <nav class="breadcrumbs" span ng-if="portfolio">
+            <a href="#/portfolios">Portfolios</a>
+        </nav>
+        <h1><span ng-if="portfolio">{{ portfolio.Name }}</span><span ng-if="!portfolio">Properties</span></h1>
+
+        <div class="filters">
+
+            <input type="checkbox" check-all models="properties" />
+
+            <div class="selected-actions">
+                <button class="button" ng-click="openAssignModal()">Assign</button>
+                <button class="button">Share</button>
+                <button class="button" ng-click="openPortfolioModal()">Add to Portfolio</button>
+                <button class="button" ng-hide="isDemo">Flag</button>
+            </div>
+
+            <hr />
+
+            <h2>Filter by</h2>
+
+            <select ui-select2 ng-model="search.Status" data-placeholder="Status" ng-if="properties.$resolved">
+                <option value="">Status</option>
+                <option value="{{prop_Status}}" ng-repeat="prop_Status in properties | uniqProp:'Status'">{{prop_Status}}</option>
+            </select>
+            <select ui-select2 ng-model="search.AssetType" data-placeholder="AssetType" ng-if="properties.$resolved">
+                <option value="">Asset Type</option>
+                <option value="{{prop_AssetType}}" ng-repeat="prop_AssetType in properties | uniqProp:'AssetType'">{{prop_AssetType}}</option>
+            </select>
+            <select ui-select2 ng-model="search.Region" data-placeholder="Region" ng-if="properties.$resolved">
+                <option value="">Region</option>
+                <option value="{{prop_Region}}" ng-repeat="prop_Region in properties | uniqProp:'Region'">{{prop_Region}}</option>
+            </select>
+            <select ui-select2 ng-model="search.SubRegion"data-placeholder="SubRegion" ng-if="properties.$resolved">
+                <option value="">Sub-Region</option>
+                <option value="{{prop_SubRegion}}" ng-repeat="prop_SubRegion in properties | uniqProp:'SubRegion'">{{prop_SubRegion}}</option>
+            </select>
+            <select ui-select2 ng-model="search.CreatedBy"data-placeholder="CreatedBy" ng-if="properties.$resolved">
+                <option value="">Created By</option>
+                <option value="{{prop_CreatedBy}}" ng-repeat="prop_CreatedBy in properties | uniqProp:'CreatedBy'">{{prop_CreatedBy}}</option>
+            </select>
+
+            <input type="text" placeholder="Search" class="search-query" ng-model="search.$" ng-keydown="curPage = 0" />
+        </div>
+
+        <ng-include src="'/views/properties/'+settings.layout+'.html'" class="properties"></ng-include>
+
+        <div class="pagination" ng-show="properties.$resolved" ng-if="numPages()-1 > 0">
+            <button class="button" ng-disabled="curPage == 0" ng-click="curPage=curPage-1; jumpTop();">
+                Previous
+            </button>
+            {{curPage+1}}/{{numPages()}}
+            <button class="button" ng-disabled="curPage >= numPages()-1" ng-click="curPage=curPage+1; jumpTop();">
+                Next
+            </button>
+        </div>
+
+        <div class="spinner" ng-if="!properties.$resolved"></div>
+
+        <p class="no-results" ng-show="(properties | filter:search).length===0">Sorry, there are no properties available</p>
+    </tab>
+    <tab heading="Dashboard" ng-if="portfolio">
+        <iframe ng-src="{{ $sce.trustAsResourceUrl(tableau_url) }}" ng-if="tableau_url"
+                width="100%" style="height: 850px">
+        </iframe>
+    </tab>
+</tabset>

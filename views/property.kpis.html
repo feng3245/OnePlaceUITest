@@ -1,0 +1,12 @@
+<tabset>
+    <tab heading="KPIs">
+        <section class="kpi-chart" name="KPIs" kpis="kpis"></section>
+        <p class="no-results" ng-if="!kpis">Sorry, there are no KPIs currently available for {{ property.Name }}. Please check back again later.</p>
+    </tab>
+    <tab heading="Stacking Plan">
+        <h2 class="section-heading">Stacking Plan</h2>
+        <iframe ng-src="{{ $sce.trustAsResourceUrl(tableau_url) }}" ng-if="tableau_url"
+            width="100%" style="height: 1278px;">
+        </iframe>
+    </tab>
+</tabset>
